@@ -1,0 +1,26 @@
+# Bundle patch for dsh-subagent-antigravity:
+# 1. Inserts the `subagent-antigravity` host plugin (registers the direct
+#    `antigravity` LlmAdapter, loopback proxy, `antigravity_usage` tool,
+#    `/api/dsh-antigravity/usage` endpoint, and pins `subagent_fork` children
+#    to the Antigravity subscription).
+# 2. Enables `subagent-fork-in-process` with capacity 12 and disables the
+#    paid `subagent-spawn-in-process` route so delegated work stays on the
+#    subscription.
+- insert:
+    - id: subagent-antigravity
+      name: 'dsh-subagent-antigravity'
+      config:
+        provider: antigravity
+        model: gemini-3.8-flash-high
+        pinSubagentFork: true
+        port: 8791
+
+- id: subagent-fork-in-process
+  disabled: false
+
+- id: subagent-spawn-in-process
+  disabled: true
+
+- id: subagent
+  config:
+    maxActiveSubagents: 12

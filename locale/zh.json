@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Antigravity 子智能体委派",
+    "description": "将 DSH 原生 subagent_fork 子会话路由到 Google AI Pro (Antigravity) 订阅：支持实时流式输出、完整工具调用、前缀缓存预热队列，以及聊天窗口右上角配额按钮与侧滑模型/推理强度设置抽屉。"
+  }
+}

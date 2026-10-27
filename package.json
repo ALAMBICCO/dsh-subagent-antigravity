@@ -1,0 +1,103 @@
+{
+  "name": "dsh-subagent-antigravity",
+  "version": "1.1.0",
+  "description": "Route native DSH subagent_fork child sessions onto your Google AI Pro (Antigravity) subscription with live streaming, full tool calling, fast HTTPS quota checks, and a top-right chat header button + slide-out drawer for usage, model setting, effort level, and /subagent toggle.",
+  "type": "module",
+  "author": "ALAMBICCO",
+  "license": "MIT",
+  "homepage": "https://github.com/ALAMBICCO/dsh-subagent-antigravity#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALAMBICCO/dsh-subagent-antigravity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ALAMBICCO/dsh-subagent-antigravity/issues"
+  },
+  "main": "lib/index.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./icon": "./icon.svg",
+    "./icon.svg": "./icon.svg",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/adapter.js",
+    "lib/agy.js",
+    "lib/models.js",
+    "lib/openai.js",
+    "lib/proxy.js",
+    "lib/signatures.js",
+    "lib/usage.js",
+    "lib/client.js",
+    "locale",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "subagent",
+    "subagent-fork",
+    "antigravity",
+    "agy",
+    "gemini",
+    "claude",
+    "quota"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0-rc.1",
+    "node": ">=22.0.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0 <5",
+    "@deepseek-ai/dsh-attachment": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": ">=3.18.0 <4"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-attachment": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "engines": {
+      "dsh": ">=0.2.0-rc.1"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-cordis-client-runner",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
